@@ -30,14 +30,14 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
 
   void _register() async {
     if (!_formKey.currentState!.validate()) return;
-    ref.read(isPageRegLoading.notifier).state = true;
+    
 
     final success = await ref.read(authControllerProvider.notifier).register(
           _nameController.text.trim(),
           _emailController.text.trim(),
           _passwordController.text,
         );
-    ref.read(isPageRegLoading.notifier).state = false;
+     
 
     if (success && mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -129,7 +129,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                 ),
-                child: _isLoading
+                child: ref.watch(authControllerProvider).isLoading 
                     ? const CircularProgressIndicator.adaptive()
                     : const Text('Register'),
               ),
