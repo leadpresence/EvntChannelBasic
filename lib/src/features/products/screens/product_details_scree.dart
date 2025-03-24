@@ -1,4 +1,3 @@
-
 // lib/features/products/screens/product_detail_screen.dart
 import 'package:evnt/src/features/products/controllers/favorite_controller.dart';
 import 'package:evnt/src/features/products/controllers/product_controller.dart';
@@ -31,8 +30,9 @@ class ProductDetailScreen extends ConsumerWidget {
                   color: product.isFavorite ? Colors.red : null,
                 ),
                 onPressed: () {
-                  ref.read(favoritesControllerProvider.notifier)
-                     .toggleFavorite(productId);
+                  ref
+                      .read(favoritesControllerProvider.notifier)
+                      .toggleFavorite(productId);
                 },
               );
             },
@@ -57,14 +57,15 @@ class ProductDetailScreen extends ConsumerWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(12),
                   child: CachedNetworkImage(
-                    imageUrl: product.thumbnail??'',
+                    imageUrl: product.thumbnail ?? '',
                     height: 300,
                     width: double.infinity,
                     fit: BoxFit.cover,
                     placeholder: (context, url) => const Center(
-                      child: CircularProgressIndicator(),
+                      child: CircularProgressIndicator.adaptive(),
                     ),
-                    errorWidget: (context, url, error) => const Icon(Icons.error),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -73,7 +74,7 @@ class ProductDetailScreen extends ConsumerWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        product.title??'',
+                        product.title ?? '',
                         style: const TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -107,7 +108,7 @@ class ProductDetailScreen extends ConsumerWidget {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  product.description??'',
+                  product.description ?? '',
                   style: const TextStyle(
                     fontSize: 16,
                     height: 1.5,
@@ -144,7 +145,7 @@ class ProductDetailScreen extends ConsumerWidget {
                     ],
                   ),
                 ],
-                if (product.reviews?.isNotEmpty==true) ...[
+                if (product.reviews?.isNotEmpty == true) ...[
                   const SizedBox(height: 16),
                   const Text(
                     'Reviews',
@@ -160,7 +161,7 @@ class ProductDetailScreen extends ConsumerWidget {
                       child: Card(
                         child: Padding(
                           padding: const EdgeInsets.all(8),
-                          child: Text(review.comment??''),
+                          child: Text(review.comment ?? ''),
                         ),
                       ),
                     );
@@ -188,7 +189,7 @@ class ProductDetailScreen extends ConsumerWidget {
           );
         },
         loading: () => const Center(
-          child: CircularProgressIndicator(),
+          child: CircularProgressIndicator.adaptive(),
         ),
         error: (error, stack) => Center(
           child: Text('Error: ${error.toString()}'),

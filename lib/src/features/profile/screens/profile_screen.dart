@@ -158,9 +158,9 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                     readOnly: true,
                   ),
                   const SizedBox(height: 32),
-                 const Row(
+                  const Row(
                     children: [
-                       Text(
+                      Text(
                         'Device Information',
                         style: TextStyle(
                           fontSize: 18,
@@ -223,7 +223,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                       );
                     },
                     loading: () => const Center(
-                      child: CircularProgressIndicator(),
+                      child: CircularProgressIndicator.adaptive(),
                     ),
                     error: (error, stack) => Text('Error: ${error.toString()}'),
                   ),
@@ -233,7 +233,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
           );
         },
         loading: () => const Center(
-          child: CircularProgressIndicator(),
+          child: CircularProgressIndicator.adaptive(),
         ),
         error: (error, stack) => Center(
           child: Text('Error: ${error.toString()}'),

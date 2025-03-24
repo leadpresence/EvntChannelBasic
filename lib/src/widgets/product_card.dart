@@ -13,7 +13,7 @@ class ProductCard extends ConsumerWidget {
     super.key,
     required this.product,
     required this.onTap,
-  }) ;
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -29,16 +29,18 @@ class ProductCard extends ConsumerWidget {
             Stack(
               children: [
                 ClipRRect(
-                  borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
+                  borderRadius:
+                      const BorderRadius.vertical(top: Radius.circular(8)),
                   child: CachedNetworkImage(
-                    imageUrl: product.thumbnail??'',
+                    imageUrl: product.thumbnail ?? '',
                     height: 150,
                     width: double.infinity,
                     fit: BoxFit.cover,
                     placeholder: (context, url) => const Center(
-                      child: CircularProgressIndicator(),
+                      child: CircularProgressIndicator.adaptive(),
                     ),
-                    errorWidget: (context, url, error) => const Icon(Icons.error),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
                   ),
                 ),
                 Positioned(
@@ -56,8 +58,9 @@ class ProductCard extends ConsumerWidget {
                         size: 18,
                       ),
                       onPressed: () {
-                        ref.read(favoritesControllerProvider.notifier)
-                           .toggleFavorite(product.id);
+                        ref
+                            .read(favoritesControllerProvider.notifier)
+                            .toggleFavorite(product.id);
                       },
                     ),
                   ),
@@ -70,7 +73,7 @@ class ProductCard extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    product.title??'',
+                    product.title ?? '',
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,

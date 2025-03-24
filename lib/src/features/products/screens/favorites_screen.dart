@@ -23,7 +23,7 @@ class FavoritesScreen extends ConsumerWidget {
               child: Text('No favorites yet'),
             );
           }
-          
+
           return GridView.builder(
             padding: const EdgeInsets.all(16),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -43,7 +43,7 @@ class FavoritesScreen extends ConsumerWidget {
           );
         },
         loading: () => const Center(
-          child: CircularProgressIndicator(),
+          child: CircularProgressIndicator.adaptive(),
         ),
         error: (error, stack) => Center(
           child: Text('Error: ${error.toString()}'),

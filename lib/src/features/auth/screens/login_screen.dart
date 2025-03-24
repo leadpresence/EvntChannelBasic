@@ -27,12 +27,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
   void _login() async {
     if (!_formKey.currentState!.validate()) return;
-    ref.read(isPageLoginLoading.notifier).state = true;
     final success = await ref.read(authControllerProvider.notifier).login(
           _emailController.text.trim(),
           _passwordController.text,
         );
-    ref.read(isPageLoginLoading.notifier).state = false;
 
     if (success && mounted) {
       context.go('/');
@@ -99,12 +97,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               ),
               const SizedBox(height: 24),
               ElevatedButton(
-                onPressed: ref.watch(isPageLoginLoading) ? null : _login,
+                onPressed: ref.watch(authControllerProvider).isLoading ? null : _login,
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                 ),
                 child: ref.watch(isPageLoginLoading)
-                    ? const CircularProgressIndicator()
+                    ? const CircularProgressIndicator.adaptive()
                     : const Text('Login'),
               ),
               const SizedBox(height: 16),

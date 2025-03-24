@@ -1,4 +1,3 @@
-
 // lib/features/products/screens/product_listing_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -28,7 +27,8 @@ class ProductListingScreen extends ConsumerWidget {
         ],
       ),
       body: RefreshIndicator(
-        onRefresh: () => ref.read(productControllerProvider.notifier).refreshProducts(),
+        onRefresh: () =>
+            ref.read(productControllerProvider.notifier).refreshProducts(),
         child: productsAsync.when(
           data: (products) {
             if (products.isEmpty) {
@@ -36,7 +36,7 @@ class ProductListingScreen extends ConsumerWidget {
                 child: Text('No products available'),
               );
             }
-            
+
             return GridView.builder(
               padding: const EdgeInsets.all(16),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -56,7 +56,7 @@ class ProductListingScreen extends ConsumerWidget {
             );
           },
           loading: () => const Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator.adaptive(),
           ),
           error: (error, stack) => Center(
             child: Text('Error: ${error.toString()}'),

@@ -1,10 +1,10 @@
-
-
 // lib/features/auth/screens/register_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../controllers/auth_controller.dart';
+
+final isPageRegLoading = StateProvider<bool>((ref) => false);
 
 class RegisterScreen extends ConsumerStatefulWidget {
   const RegisterScreen({super.key});
@@ -30,16 +30,14 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
 
   void _register() async {
     if (!_formKey.currentState!.validate()) return;
-
-    setState(() => _isLoading = true);
+    ref.read(isPageRegLoading.notifier).state = true;
 
     final success = await ref.read(authControllerProvider.notifier).register(
           _nameController.text.trim(),
           _emailController.text.trim(),
           _passwordController.text,
         );
-
-    setState(() => _isLoading = false);
+    ref.read(isPageRegLoading.notifier).state = false;
 
     if (success && mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -132,7 +130,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                   padding: const EdgeInsets.symmetric(vertical: 16),
                 ),
                 child: _isLoading
-                    ? const CircularProgressIndicator()
+                    ? const CircularProgressIndicator.adaptive()
                     : const Text('Register'),
               ),
               const SizedBox(height: 16),
