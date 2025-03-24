@@ -7,7 +7,6 @@ import 'package:evnt/src/features/products/models/product_dto.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../../core/api/api_client.dart';
 import '../../../core/local_storage/isar_service.dart';
-import '../models/product.dart';
 
 part 'product_repository.g.dart';
 

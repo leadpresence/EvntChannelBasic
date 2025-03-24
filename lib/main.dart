@@ -22,14 +22,14 @@ void main() async {
 }
 
 class MyApp extends ConsumerWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(routerProvider);
     
     return MaterialApp.router(
-      title: 'E-Commerce App',
+      title: 'E-vnt',
       theme: appTheme,
       routerConfig: router,
       debugShowCheckedModeBanner: false,

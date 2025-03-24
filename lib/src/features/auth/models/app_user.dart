@@ -10,7 +10,7 @@ class User {
   @Index(unique: true)
   late String email;
   late String name;
-  late String? profilePicture;
+  String? profilePicture ="https://www.londondentalsmiles.co.uk/wp-content/uploads/2017/06/person-dummy.jpg";
   late String hashedPassword; // Store hashed password only
   
   // Don't store auth token in Isar (use flutter_secure_storage)

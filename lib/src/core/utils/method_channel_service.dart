@@ -1,10 +1,11 @@
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'method_channel_service.g.dart';
 
 class MethodChannelService {
-  static const MethodChannel _channel = MethodChannel('com.example.ecommerce_app/device_info');
+  static const MethodChannel _channel = MethodChannel('com.leadpresence.evnt/device_info');
 
   Future<Map<String, dynamic>> getDeviceInfo() async {
     try {
@@ -17,6 +18,6 @@ class MethodChannelService {
 }
 
 @riverpod
-MethodChannelService methodChannelService(MethodChannelServiceRef ref) {
+MethodChannelService methodChannelService(Ref ref) {
   return MethodChannelService();
 }

@@ -3,7 +3,6 @@
 import 'package:evnt/src/features/products/models/product.dart';
 import 'package:evnt/src/features/products/controllers/product_controller.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../models/product.dart';
 import '../repositories/product_repository.dart';
 
 part 'favorite_controller.g.dart';

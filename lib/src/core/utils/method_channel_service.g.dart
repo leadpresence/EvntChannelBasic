@@ -7,7 +7,7 @@ part of 'method_channel_service.dart';
 // **************************************************************************
 
 String _$methodChannelServiceHash() =>
-    r'0ac390c1e387e03bec9824bcac2411b814c3a479';
+    r'04d7414f6eaaee7a2f38495960dc46fc7633da14';
 
 /// See also [methodChannelService].
 @ProviderFor(methodChannelService)

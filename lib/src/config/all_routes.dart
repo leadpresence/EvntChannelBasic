@@ -1,4 +1,4 @@
-// lib/config/router.dart
+import 'package:evnt/src/features/auth/screens/register.screen.dart';
 import 'package:evnt/src/features/products/screens/favorites_screen.dart';
 import 'package:evnt/src/features/products/screens/product_details_scree.dart';
 import 'package:evnt/src/features/products/screens/product_listings.dart';
