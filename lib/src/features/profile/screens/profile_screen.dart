@@ -161,7 +161,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                     Row(
                     children: [
                       Text(
-                        '${user.name} Device Information',
+                        '${user.name}\'s Device Information',
                         style:const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
