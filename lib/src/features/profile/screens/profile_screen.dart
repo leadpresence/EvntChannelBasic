@@ -158,11 +158,11 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                     readOnly: true,
                   ),
                   const SizedBox(height: 32),
-                  const Row(
+                    Row(
                     children: [
                       Text(
-                        'Device Information',
-                        style: TextStyle(
+                        '${user.name} Device Information',
+                        style:const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
